@@ -43,7 +43,7 @@ public class GuessActivity extends AppCompatActivity {
     }
 
     private void generateNewTargetNumber() {
-        targetNumber = random.nextInt(10) + 1; // 1 to 10 inclusive
+        targetNumber = random.nextInt(10) + 1;
     }
 
     private void updateAttemptText() {
@@ -80,15 +80,12 @@ public class GuessActivity extends AppCompatActivity {
             attemptCount++;
             updateAttemptText();
         } else {
-            // Correct guess
             if (attemptCount == 2) {
                 tvGuessFeedback.setText("Correct — achieved on the 2nd attempt");
-                // Disable guess button and input since the game has ended successfully
                 btnGuess.setEnabled(false);
                 etGuess.setEnabled(false);
             } else {
                 tvGuessFeedback.setText("Correct, but not on the 2nd attempt. Try again.");
-                // Immediately start a new game
                 attemptCount = 1;
                 generateNewTargetNumber();
                 updateAttemptText();
