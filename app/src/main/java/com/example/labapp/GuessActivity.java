@@ -31,6 +31,18 @@ public class GuessActivity extends AppCompatActivity {
         etGuess = findViewById(R.id.et_guess);
         tvGuessFeedback = findViewById(R.id.tv_guess_feedback);
         btnGuess = findViewById(R.id.btn_guess);
+        MaterialButton btnBack = findViewById(R.id.btn_back);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         updateAttemptText();
 
@@ -40,6 +52,12 @@ public class GuessActivity extends AppCompatActivity {
                 handleGuess();
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     private void generateNewTargetNumber() {

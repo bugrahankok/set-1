@@ -20,17 +20,35 @@ public class IntroduceActivity extends AppCompatActivity {
         etName = findViewById(R.id.et_name);
         tvGreetingOutput = findViewById(R.id.tv_greeting_output);
         MaterialButton btnWitaj = findViewById(R.id.btn_witaj);
+        MaterialButton btnBack = findViewById(R.id.btn_back);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btnWitaj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String input = etName.getText() != null ? etName.getText().toString().trim() : "";
                 if (input.isEmpty()) {
-                    tvGreetingOutput.setText("Przedstaw się.");
+                    tvGreetingOutput.setText("Please introduce yourself.");
                 } else {
-                    tvGreetingOutput.setText("Witaj " + input);
+                    tvGreetingOutput.setText("Hello " + input);
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

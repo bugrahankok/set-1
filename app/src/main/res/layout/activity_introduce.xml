@@ -40,7 +40,7 @@
         android:id="@+id/btn_witaj"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="Witaj"
+        android:text="Say Hello"
         android:textSize="18sp"
         android:layout_marginBottom="32dp"
         style="@style/Widget.MaterialComponents.Button" />
@@ -50,17 +50,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:layout_marginBottom="24dp">
+ 
+         <TextView
+             android:id="@+id/tv_greeting_output"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Please introduce yourself."
+             android:textColor="@color/text_primary"
+             android:textSize="20sp"
+             android:layout_gravity="center"
+             android:gravity="center" />
+     </FrameLayout>
 
-        <TextView
-            android:id="@+id/tv_greeting_output"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Przedstaw się."
-            android:textColor="@color/text_primary"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:gravity="center" />
-    </FrameLayout>
+    <!-- Back Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Back"
+        android:textSize="18sp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
 </LinearLayout>
